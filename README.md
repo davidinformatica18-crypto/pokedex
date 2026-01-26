@@ -7,7 +7,7 @@
 
 # - Atributos:
 
-º id : Identificador único. nombre : Nombre del Pokémon tipo : Tipo(s) (Ej: Fuego, Agua). nivel : 
+º id : Identificador único. nombre : Nombre del Pokémon tipo : Tipos Fuego, Agua. nivel : 
 
 º Nivel actual salud : Puntos de vida ataque : Poder de ataque defensa : Poder de defensa
 

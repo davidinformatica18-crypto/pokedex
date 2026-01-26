@@ -1,76 +1,76 @@
 # pokedex
 # Definir entidades que hay en una Pokedex con sus Métodos atributos.
 
-# 1. Pokémon _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+# 1. Pokémon _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
 # Representa a un Pokémon individual.
 
-# Atributos:
+# - Atributos:
 
-id : Identificador único. nombre : Nombre del Pokémon tipo : Tipo(s) (Ej: Fuego, Agua). nivel : 
+º id : Identificador único. nombre : Nombre del Pokémon tipo : Tipo(s) (Ej: Fuego, Agua). nivel : 
 
-Nivel actual salud : Puntos de vida ataque : Poder de ataque defensa : Poder de defensa
+º Nivel actual salud : Puntos de vida ataque : Poder de ataque defensa : Poder de defensa
 
-velocidad : Velocidad del Pokémon habilidades : Lista de habilidades estado : Estado actual (normal, debilitado, etc.)
+º velocidad : Velocidad del Pokémon habilidades : Lista de habilidades estado : Estado actual (normal, debilitado, etc.)
 
-# Métodos:
+# - Métodos:
 
-atacar(objetivo). recibirDanio(cantidad). subirNivel(). usarHabilidad(habilidad). estaDebilitado().
+º atacar(objetivo). recibirDanio(cantidad). subirNivel(). usarHabilidad(habilidad). estaDebilitado().
 
-# 2. Pokédex _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+# 2. Pokédex _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
 # Contenedor principal de información de Pokémon.
 
-# Atributos:
+# - Atributos:
 
-listaPokemon : Colección de Pokémon registrados. region : Región de la Pokédex. totalRegistrados : Número de Pokémon almacenados
+º listaPokemon : Colección de Pokémon registrados. region : Región de la Pokédex. totalRegistrados : Número de Pokémon almacenados
 
-# Métodos:
+# - Métodos:
 
-registrarPokemon(pokemon). eliminarPokemon(id). buscarPokemon(nombre). listarPokemon(). mostrarDetalle(id)
+º registrarPokemon(pokemon). eliminarPokemon(id). buscarPokemon(nombre). listarPokemon(). mostrarDetalle(id)
 
-# 3. Entrenador _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+# 3. Entrenador _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 # Representa a un entrenador Pokémon.
 
-# Atributos:
+# - Atributos:
 
-nombre. edad. region. equipoPokemon : Pokémon activos (máx. 6). pokedex : Pokédex asociada
+º nombre. edad. region. equipoPokemon : Pokémon activos (máx. 6). pokedex : Pokédex asociada
 
-# Métodos:
+# - Métodos:
 
-capturarPokemon(pokemon). liberarPokemon(pokemon). cambiarPokemon(posicion). verEquipo()
+º capturarPokemon(pokemon). liberarPokemon(pokemon). cambiarPokemon(posicion). verEquipo()
 
-# 4. Batalla _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+# 4. Batalla _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
 # Gestiona un combate entre Pokémon.
 
-# Atributos:
+# - Atributos:
 
-pokemon1. pokemon2. turnoActual
+º pokemon1. pokemon2. turnoActual
 
-estadoBatalla
+º estadoBatalla
 
-# Métodos:
+# - Métodos:
 
-iniciarBatalla(). atacar(). cambiarTurno(). finalizarBatalla()
+º iniciarBatalla(). atacar(). cambiarTurno(). finalizarBatalla()
 
-# 5. Habilidad _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+# 5. Habilidad _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 # Define habilidades o movimientos.
 
-# Atributos:
+# - Atributos:
 
-nombre. tipo. danio. costoEnergia. efectoEspecial
+º nombre. tipo. danio. costoEnergia. efectoEspecial
 
-# Métodos:
+# - Métodos:
 
-ejecutar(objetivo). tieneEfectoEspecial() Paradigma: Programación Orientada a Objetos
+º -- ejecutar(objetivo). tieneEfectoEspecial() Paradigma: Programación Orientada a Objetos
 
-Control de versiones: Git & GitHub. Objetivo del Proyecto
+º -- Control de versiones: Git & GitHub. Objetivo del Proyecto
 
-Crear una estructura base para una Pokédex que permita:
+º -- Crear una estructura base para una Pokédex que permita:
 
-Registrar y gestionar Pokémon. Simular batallas
+º -- Registrar y gestionar Pokémon. Simular batallas
 
 # Aplicar principios de POO (encapsulación, herencia, polimorfismo) 

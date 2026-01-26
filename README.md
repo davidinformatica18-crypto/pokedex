@@ -67,14 +67,10 @@ Métodos:
 
 ejecutar(objetivo). tieneEfectoEspecial() Paradigma: Programación Orientada a Objetos
 
-Control de versiones: Git & GitHub
-
-Objetivo del Proyecto
+Control de versiones: Git & GitHub. Objetivo del Proyecto
 
 Crear una estructura base para una Pokédex que permita:
 
-Registrar y gestionar Pokémon
-
-Simular batallas
+Registrar y gestionar Pokémon. Simular batallas
 
 Aplicar principios de POO (encapsulación, herencia, polimorfismo)

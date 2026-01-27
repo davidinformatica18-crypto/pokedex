@@ -11,7 +11,6 @@
 # condiciones victoria o derrota
 # El primer pokemon que se queda a vvida <= 0 pierde
 
-
 from Personaje_pokemon import Pokemon # Importamos la clase Pokemon desde el archivo Personaje_pokemon.py
 
 pokemon1 = Pokemon(                   # Crea el primer pokemon en teoria 
@@ -92,3 +91,4 @@ while pokemon1.vida > 0 and pokemon2.vida > 0: # Bucle principal del combate Se 
 
 
 print("El combate ha terminado") # Muestra el resultado final
+

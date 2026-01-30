@@ -13,6 +13,7 @@
 
 from Personaje_pokemon import Pokemon # Importamos la clase Pokemon desde el archivo Personaje_pokemon.py
 
+"""
 pokemon1 = Pokemon(                   # Crea el primer pokemon en teoria 
     
     nombre="Pikachu",
@@ -49,6 +50,23 @@ pokemon1 = Pokemon(                   # Crea el primer pokemon en teoria
 
 )
 
+"""
+
+impactrueno = Movimiento("Impactrueno", "Electrico", 50)
+ataque_rapido = Movimiento("Ataque rapido", "Normal", 20)
+placaje = Movimiento("Placaje", "Normal", 10)
+chispa = Movimiento("Chispa", "Electrico", 80)
+
+pokemon1 = Pokemon(
+    nombre="Pikachu",
+    tipo="Electrico",
+    nivel=10,
+    vida=200,
+    ataque=25,
+    defensa=10,
+    velocidad=90,
+    movimientos=[impactrueno, ataque_rapido, placaje, chispa]
+)
 
 pokemon2 = Pokemon(               # Crea el segundo pokemon para no dejarlo solo
    

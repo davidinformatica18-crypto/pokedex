@@ -1,6 +1,6 @@
 import pytest
 #from movimiento import Movimiento
-from pokedex.personaje_pokemon import Pokemon, Movimiento
+from Prueba_Pokemon.personaje_pokemon import Pokemon, Movimiento
 
 def test_anadir_movimiento_correcto():
 

@@ -1,0 +1,56 @@
+import random # Importamos la librería random para elegir cosas al azar.
+# from movimiento import Movimiento 
+
+class Movimiento:
+
+    def __init__(self, nombre, tipo, nivel):
+
+        self.nombre = nombre
+        self.tipo = tipo
+        self.nivel = nivel
+
+
+class Pokemon: # Definimos la clase Pokemon Una clase es como un molde para crear pokemons y frikadas varias    
+   
+    def __init__(self, nombre, tipo, nivel, vida, ataque, defensa, velocidad, movimientos): # El método __init__ se ejecuta cuando crea un pokemon nuevo 
+                                                                                            # Aquí define sus datos iniciales
+       
+        self.nombre = nombre                                # Guarda el nombre 
+
+        self.tipo = tipo                                     # Guarda el tipo del pokemon (fuego, agua, planta.)
+
+        self.nivel = nivel                                   # Guarda el nivel 
+
+        self.vida = vida                                     # Guarda la vida actual 
+
+        self.ataque = ataque                                 # Guarda el valor de ataque 
+
+        self.defensa = defensa                               # Guarda el valor de defensa 
+
+        self.velocidad = velocidad                           # Guarda la velocidad 
+
+        self.movimientos = movimientos                       # Guarda la lista de movimientos (máximo 4 nombres)
+
+
+   
+    def ejecutar_movimiento(self, otro_pokemon):             # Método para ejecutar un movimiento contra otro pokemon
+        movimiento_elegido = random.choice(self.movimientos) # Elege un movimiento al azar de la lista de movimientos
+        print(self.nombre, "utiliza", movimiento_elegido)    # Muestra qué movimiento se ha usado
+        dano = self.ataque - otro_pokemon.defensa            # Calcula el daño El daño es el ataque menos la defensa del otro pokemon
+        movimiento.ejecutar(self, otro_pokemon)
+        
+        if dano < 0:                                         # Si el daño es negativo, lo dejamos en 0
+            dano = 0
+
+        
+        otro_pokemon.recibir_dano(dano)                      # Llama al método recibir_dano del otro pokemon
+
+
+    
+    def recibir_dano(self, dano):                             # Método para recibir daño
+ 
+        self.vida -= dano                                     # Restamos el daño a la vida actual
+
+        print(self.nombre, "recibe", dano, " daño")             # Muestra cuánta vida le queda
+
+        print("resta vida de", self.nombre, ":", self.vida)

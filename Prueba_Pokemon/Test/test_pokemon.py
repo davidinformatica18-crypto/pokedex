@@ -1,56 +1,69 @@
-import random # Importamos la librería random para elegir cosas al azar.
-# from movimiento import Movimiento 
+import pytest
+#from movimiento import Movimiento
+from Prueba_Pokemon.personaje_pokemon import Pokemon, Movimiento
 
-class Movimiento:
+def test_pokemon_empieza_sin_movimiento():
+    pokemon = pokemon("charmander", "fuego")
+    assert len(pokemon.get_movimiento()) == 0
 
-    def __init__(self, nombre, tipo, nivel):
+def test_anadir_movimiento_correcto():
 
-        self.nombre = nombre
-        self.tipo = tipo
-        self.nivel = nivel
+    movimiento = Movimiento("Lanzallamas", "fuego", 20)
 
+    pokemon = Pokemon("Charmander", "fuego")
 
-class Pokemon: # Definimos la clase Pokemon Una clase es como un molde para crear pokemons y frikadas varias    
-   
-    def __init__(self, nombre, tipo, nivel, vida, ataque, defensa, velocidad, movimientos): # El método __init__ se ejecuta cuando crea un pokemon nuevo 
-                                                                                            # Aquí define sus datos iniciales
-       
-        self.nombre = nombre                                # Guarda el nombre 
+    pokemon.set_movimiento(movimiento)
 
-        self.tipo = tipo                                     # Guarda el tipo del pokemon (fuego, agua, planta.)
-
-        self.nivel = nivel                                   # Guarda el nivel 
-
-        self.vida = vida                                     # Guarda la vida actual 
-
-        self.ataque = ataque                                 # Guarda el valor de ataque 
-
-        self.defensa = defensa                               # Guarda el valor de defensa 
-
-        self.velocidad = velocidad                           # Guarda la velocidad 
-
-        self.movimientos = movimientos                       # Guarda la lista de movimientos (máximo 4 nombres)
+    assert len(pokemon.get.movimientos()) == 1
 
 
-   
-    def ejecutar_movimiento(self, otro_pokemon):             # Método para ejecutar un movimiento contra otro pokemon
-        movimiento_elegido = random.choice(self.movimientos) # Elege un movimiento al azar de la lista de movimientos
-        print(self.nombre, "utiliza", movimiento_elegido)    # Muestra qué movimiento se ha usado
-        dano = self.ataque - otro_pokemon.defensa            # Calcula el daño El daño es el ataque menos la defensa del otro pokemon
-        movimiento.ejecutar(self, otro_pokemon)
-        
-        if dano < 0:                                         # Si el daño es negativo, lo dejamos en 0
-            dano = 0
+def test_no_mas_de_cuatro_movimientos():
+    pokemon = Pokemon ("charmander,fuego")
 
-        
-        otro_pokemon.recibir_dano(dano)                      # Llama al método recibir_dano del otro pokemon
+    movimientos = [
+        Movimiento("Ascuas", "fuego", 10),
+        Movimiento("Lanzallamas", "fuego", 20),
+        Movimiento("Giro Fuego", "fuego", 15),
+        Movimiento("Colmillo Ígneo", "fuego", 25)
+    ]
 
+    for m in movimientos:
+        pokemon.set_movimiento(m)
+    assert len (pokemon.get_movimientos()) == 4
 
+def test_quinto_movimiento_da_error():
+    pokemon = Pokemon("Charmander", "fuego")
+
+    for i in range(4):
+        pokemon.set_movimiento(Movimiento("Fuego{i}", "fuego", 10))
+
+    with pytest.raises(ValueError):
+        pokemon.set_movimiento(Movimiento("Extra", "fuego", 10))
+
+def test_anadir_movimiento_incorrecto():
+
+    movimiento = Movimiento("Pistola Agua", "agua", 10)
+
+    pokemon = Pokemon("Charmander", "fuego")
     
-    def recibir_dano(self, dano):                             # Método para recibir daño
- 
-        self.vida -= dano                                     # Restamos el daño a la vida actual
+    with pytest.raises(ValueError):
 
-        print(self.nombre, "recibe", dano, " daño")             # Muestra cuánta vida le queda
+        pokemon.set_movimiento(movimiento)
 
-        print("resta vida de", self.nombre, ":", self.vida)
+    with pytest.raises(ValueError):
+        pokemon.set_movimiento(movimiento)
+
+def test_varios_movimientos_correctos():
+
+    animacion1 = Movimiento("Ascuas", "fuego", 30)
+
+    animacion2 = Movimiento("Lanzallamas", "fuego", 20)
+
+    pokemon = Pokemon("Charmander", "fuego", [animacion11, animacion2])
+
+    assert len(pokemon.movimientos) == 2
+
+
+def test_tipo_pokemon_invalido():
+
+    movimiento = Movimiento("Lanzallamas", "fuego", 30)

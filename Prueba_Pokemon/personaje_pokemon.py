@@ -29,16 +29,35 @@ class Pokemon: # Definimos la clase Pokemon Una clase es como un molde para crea
 
         self.velocidad = velocidad                           # Guarda la velocidad 
 
-        self.movimientos = movimientos                       # Guarda la lista de movimientos (máximo 4 nombres)
+        # self.movimientos = movimientos                       # Guarda la lista de movimientos (máximo 4 nombres)
+        self.movimientos = []                                # Empieza sin movimientos
+
+        try:
+
+         @property
+         def movimientos(self):
+            return self._movimientos
+    
+        except TypeError:
+            print ("el movimiento no es correcto")
+
+    @movimientos.setter
+    def movimientos(self, movimiento):
+        if movimiento.tipo != self.tipo:
+            raise ValueError("movimiento no coincide")
+
+        if len(self._movimientos) >= 4:
+            raise ValueError("No puede tener más de 4 movimientos no te engañes")
+
+        self._movimientos.append(movimiento)
 
 
-   
     def ejecutar_movimiento(self, otro_pokemon):             # Método para ejecutar un movimiento contra otro pokemon
         movimiento_elegido = random.choice(self.movimientos) # Elege un movimiento al azar de la lista de movimientos
         print(self.nombre, "utiliza", movimiento_elegido)    # Muestra qué movimiento se ha usado
         dano = self.ataque - otro_pokemon.defensa            # Calcula el daño El daño es el ataque menos la defensa del otro pokemon
         movimiento.ejecutar(self, otro_pokemon)
-        
+
         if dano < 0:                                         # Si el daño es negativo, lo dejamos en 0
             dano = 0
 

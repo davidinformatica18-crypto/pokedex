@@ -2,6 +2,24 @@ import pytest
 #from movimiento import Movimiento
 from Prueba_Pokemon.personaje_pokemon import Pokemon, Movimiento
 
+# _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+class PokemonFuego(Pokemon):                    # Sub clase de Pokemon
+    def __init__(self, nombre, vida, ataque):
+        super().__init__(nombre, vida, ataque)  # super clase o clase padre
+        self.tipo = "Fuego"                     # Tipo fuego
+        assert pokemon.tipo == "Fuego"
+
+
+
+class PokemonAgua(Pokemon):                     
+    def __init__(self, nombre, vida, ataque):
+        super().__init__(nombre, vida, ataque)  
+        self.tipo = "Agua"                      # Tipo agua
+        assert pokemon.tipo == "Agua"
+
+# _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
 def test_pokemon_empieza_sin_movimiento():
     pokemon = pokemon("charmander", "fuego")
     assert len(pokemon.get_movimiento()) == 0

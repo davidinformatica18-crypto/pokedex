@@ -4,11 +4,11 @@ import json
 
 app = FastAPI()
 
-# Ruta del JSON
-RUTA_JSON = Path(__file__).parent / "lista_pokemon.json"
 
-# Archivo el JSON
-with open(RUTA_JSON, "r") as archivo:
+RUTA_JSON = Path(__file__).parent / "lista_pokemon.json" # Ruta del JSON
+
+
+with open(RUTA_JSON, "r") as archivo: # Archivo el JSON
     pokemons = json.load(archivo)
 
 @app.get("/pokemon") # Lista de Pokemon
@@ -33,17 +33,17 @@ def pokemovimientos():
 
 @app.post("/pokemon")
 def crear():
-    return {"mensaje": "Se ha creado el Pokémon"}
+    return {"mensaje": "Se ha creado el Pokemon"}
 
 @app.put("/pokemon/{item_id}")
 def actualizar(item_id: int):
-    return {"mensaje": f"Se ha actualizado el Pokémon {item_id}"}
+    return {"mensaje": f"Se ha actualizado el Pokemon {item_id}"}
 
 
 @app.patch("/pokemon/{item_id}")
 def actualizar_parte(item_id: int):
-    return {"mensaje": f"Se ha actualizado parte del Pokémon {item_id}"}
+    return {"mensaje": f"Se ha actualizado parte del Pokemon {item_id}"}
 
 @app.delete("/pokemon/{item_id}")
 def eliminar(item_id: int):
-    return {"mensaje": f"Se ha eliminado el Pokémon {item_id}"}
+    return {"mensaje": f"Se ha eliminado el Pokemon {item_id}"}

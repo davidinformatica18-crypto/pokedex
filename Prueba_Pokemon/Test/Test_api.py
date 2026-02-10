@@ -11,7 +11,7 @@ RUTA_JSON = Path(__file__).parent / "lista_pokemon.json"
 with open(RUTA_JSON, "r") as archivo:
     pokemons = json.load(archivo)
 
-@app.get("/pokemon") # Lista de Pokémon
+@app.get("/pokemon") # Lista de Pokemon
 def lista_pokemon():
     return pokemons
 

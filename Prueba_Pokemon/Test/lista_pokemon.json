@@ -1,0 +1,62 @@
+[
+  {
+    "nombre": "Pikachu",
+    "tipo": "Electrico",
+    "vida": 100,
+    "ataque": 30,
+    "defensa": 10,
+    "velocidad": 90,
+    "movimientos": [
+      {
+        "nombre": "Impactrueno",
+        "tipo": "Electrico",
+        "poder": 50
+      },
+      {
+        "nombre": "Ataque rapido",
+        "tipo": "Normal",
+        "poder": 20
+      }
+    ]
+  },
+  {
+    "nombre": "Charmander",
+    "tipo": "Fuego",
+    "vida": 110,
+    "ataque": 35,
+    "defensa": 15,
+    "velocidad": 65,
+    "movimientos": [
+      {
+        "nombre": "Ascuas",
+        "tipo": "Fuego",
+        "poder": 40
+      },
+      {
+        "nombre": "Lanzallamas",
+        "tipo": "Fuego",
+        "poder": 90
+      }
+    ]
+  },
+  {
+    "nombre": "Squirtle",
+    "tipo": "Agua",
+    "vida": 120,
+    "ataque": 25,
+    "defensa": 30,
+    "velocidad": 40,
+    "movimientos": [
+      {
+        "nombre": "Pistola Agua",
+        "tipo": "Agua",
+        "poder": 40
+      },
+      {
+        "nombre": "Hidrobomba",
+        "tipo": "Agua",
+        "poder": 110
+      }
+    ]
+  }
+]

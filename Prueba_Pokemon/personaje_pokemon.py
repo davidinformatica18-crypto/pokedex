@@ -1,6 +1,7 @@
 import random # Importamos la librería random para elegir cosas al azar.
 # from movimiento import Movimiento 
 
+
 class Movimiento:
 
     def __init__(self, nombre, tipo, nivel):
@@ -9,28 +10,33 @@ class Movimiento:
         self.tipo = tipo
         self.nivel = nivel
 
+# Super clases_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
-class Pokemon: # Definimos la clase Pokemon Una clase es como un molde para crear pokemons y frikadas varias    
-   
-    def __init__(self, nombre, tipo, nivel, vida, ataque, defensa, velocidad, movimientos): # El método __init__ se ejecuta cuando crea un pokemon nuevo 
-                                                                                            # Aquí define sus datos iniciales
-       
-        self.nombre = nombre                                # Guarda el nombre 
+class PokemonFuego(Pokemon):
+    def __init__(self, nombre, vida, ataque, defensa, velocidad):
+        super().__init__(nombre, "Fuego", vida, ataque, defensa, velocidad)
 
-        self.tipo = tipo                                     # Guarda el tipo del pokemon (fuego, agua, planta.)
 
-        self.nivel = nivel                                   # Guarda el nivel 
+class PokemonAgua(Pokemon):
+    def __init__(self, nombre, vida, ataque, defensa, velocidad):
+        super().__init__(nombre, "Agua", vida, ataque, defensa, velocidad)
 
-        self.vida = vida                                     # Guarda la vida actual 
+# _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
-        self.ataque = ataque                                 # Guarda el valor de ataque 
+class PokemonFuego(Pokemon): # Definimos la clase Pokemon Una clase es como un molde para crear pokemons y frikadas varias    
 
-        self.defensa = defensa                               # Guarda el valor de defensa 
-
-        self.velocidad = velocidad                           # Guarda la velocidad 
+    def __init__(self, nombre, tipo, vida, ataque, defensa, velocidad):
+        self.nombre = nombre          # Nombre del Pokémon
+        self.tipo = tipo              # Tipo del Pokémon
+        self.vida = vida              # Vida actual
+        self.ataque = ataque          # Ataque
+        self.defensa = defensa        # Defensa
+        self.velocidad = velocidad    # Velocidad
+        self._movimientos = []        # Lista privada de movimientos
 
         # self.movimientos = movimientos                       # Guarda la lista de movimientos (máximo 4 nombres)
-        self.movimientos = []                                # Empieza sin movimientos
+
+        self.movimientos = []                                  # Empieza sin movimientos
 
         try:
 
@@ -56,7 +62,8 @@ class Pokemon: # Definimos la clase Pokemon Una clase es como un molde para crea
         movimiento_elegido = random.choice(self.movimientos) # Elege un movimiento al azar de la lista de movimientos
         print(self.nombre, "utiliza", movimiento_elegido)    # Muestra qué movimiento se ha usado
         dano = self.ataque - otro_pokemon.defensa            # Calcula el daño El daño es el ataque menos la defensa del otro pokemon
-        movimiento.ejecutar(self, otro_pokemon)
+      
+       # movimiento.ejecutar(self, otro_pokemon)
 
         if dano < 0:                                         # Si el daño es negativo, lo dejamos en 0
             dano = 0
@@ -72,4 +79,4 @@ class Pokemon: # Definimos la clase Pokemon Una clase es como un molde para crea
 
         print(self.nombre, "recibe", dano, " daño")             # Muestra cuánta vida le queda
 
-        print("resta vida de", self.nombre, ":", self.vida)
+        print("vida restante de ", self.nombre, ":", self.vida)

@@ -11,7 +11,7 @@
 # condiciones victoria o derrota
 # El primer pokemon que se queda a vvida <= 0 pierde
 
-from Personaje_pokemon import Pokemon # Importamos la clase Pokemon desde el archivo Personaje_pokemon.py
+from personaje_pokemon import PokemonFuego, PokemonAgua, Movimiento # Importamos la clase Pokemon desde el archivo Personaje_pokemon.py
 
 """
 pokemon1 = Pokemon(                   # Crea el primer pokemon en teoria 
@@ -51,86 +51,53 @@ pokemon1 = Pokemon(                   # Crea el primer pokemon en teoria
 )
 
 """
+# MOVIMIENTOS DE LOS DICHOSOS POKEMON _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
 impactrueno = Movimiento("Impactrueno", "Electrico", 50)
 ataque_rapido = Movimiento("Ataque rapido", "Normal", 20)
 placaje = Movimiento("Placaje", "Normal", 10)
 chispa = Movimiento("Chispa", "Electrico", 80)
 
-pokemon1 = Pokemon(
-    nombre="Pikachu",
-    tipo="Electrico",
-    nivel=10,
-    vida=200,
-    ataque=25,
-    defensa=10,
-    velocidad=90,
-    movimientos=[impactrueno, ataque_rapido, placaje, chispa]
+pokemon1 = PokemonFuego(
+    nombre = "Charmander",
+    vida = 110,
+    ataque = 30,
+    defensa = 10,
+    velocidad = 20
 )
 
-pokemon2 = Pokemon(               # Crea el segundo pokemon para no dejarlo solo
-   
-    nombre="Charmander",
-   
-    tipo="Fuego",
-   
-    nivel = 10,
-   
-    vida = 220,
-    
-    ataque = 28,
-    
-    defensa = 12,
-   
-    velocidad = 65,
-   
-    movimientos=["Ascuas", "Arañazo", "Lanzallamas", "Placaje"]
+pokemon2 = PokemonAgua(
+    nombre = "Squirtle",
+    vida = 110,
+    ataque = 25,
+    defensa = 15,
+    velocidad = 15
 )
 
 
-
-print("¡Comienza el combate!")                          # Muestra Que empieza el combate
-
-print(pokemon1.nombre, "VS", pokemon2.nombre)
-
-print("--------------------------------------------------")
-
-
+# AÑADIR LOS MOVIMIENTOS _ _ _ _ _ _ _ _ _ _  _ _ _ _ _ _ _  _ _
 
 if pokemon1.velocidad > pokemon2.velocidad:             # Decidimos quién ataca primero según la velocidad
-    
-    atacante = pokemon1
-   
-    defensor = pokemon2
 
-else:
-    
-    atacante = pokemon2
-   
-    defensor = pokemon1
+    pokemon1.movimientos = ascuas
+    pokemon1.movimientos = lanzallamas
 
+    pokemon2.movimientos = pistola_agua
+    pokemon2.movimientos = hidrobomba
 
+# _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
+while pokemon1.vida > 0 and pokemon2.vida > 0: # Bucle principal del combate Se repite mientras los dos pokemons tengan vida
+    atacante.ejecutar_movimiento(defensor)     # El atacante ejecuta un movimiento
 
-while pokemon1.vida > 0 and pokemon2.vida > 0:          # Bucle principal del combate Se repite mientras los dos pokemons tengan vida
+    if defensor.vida <= 0:                     # Si el defensor se queda sin vida, termina el combate
+     print(defensor.nombre, "ha sido derrotado")
+    break
 
-    
-    atacante.ejecutar_movimiento(defensor)              # El atacante ejecuta un movimiento
+    atacante, defensor = defensor, atacante
+    print("----------------------------------")
 
-    
-    if defensor.vida <= 0:                              # Si el defensor se queda sin vida, termina el combate
-       
-        print(defensor.nombre, "ha sido derrotado")
-      
-        break
-
-    
-    atacante, defensor = defensor, atacante    # Cambia los roles: el defensor pasa a atacar
-
-   
-    print("--------------------------------------------------") # Línea para que se vea más claro el turno
-
-
+print("Ha sido derrotado")        
 
 print("El combate ha terminado") # Muestra el resultado final
 

@@ -5,10 +5,10 @@ import json
 app = FastAPI()
 
 
-RUTA_JSON = Path(__file__).parent / "lista_pokemon.json" # Ruta del JSON
+archivo_json = Path(__file__).parent / "lista_pokemon.json" # Ruta del JSON
 
 
-with open(RUTA_JSON, "r") as archivo: # Archivo el JSON
+with open(archivo_json, "r") as archivo: # Archivo el JSON
     pokemons = json.load(archivo)
 
 @app.get("/pokemon") # Lista de Pokemon

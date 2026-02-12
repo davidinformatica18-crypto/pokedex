@@ -15,11 +15,11 @@ pokemons = cargar_pokemons()
 with open(archivo_json, "r") as archivo: # Archivo el JSON
     pokemons = json.load(archivo)
 
-@app.get("/pokemon") # Lista de Pokemon
+@app.get("/pokemon") # Lista de Pokemon _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 def lista_pokemon():
     return pokemons
 
-@app.get("/movimientos") # Lista de movimientos
+@app.get("/movimientos") # Lista de movimientos _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 def pokemovimientos():
     movimientos = []
 
@@ -34,7 +34,7 @@ def pokemovimientos():
 
     return movimientos
 
-@app.post("/pokemon")
+@app.post("/pokemon") # _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 def crear(nuevo_pokemon: Pokemon):
 
     pokemon_dict = nuevo_pokemon.dict()
@@ -44,7 +44,7 @@ def crear(nuevo_pokemon: Pokemon):
     guardar_pokemons(pokemons)
 
     return {
-        "mensaje": "Pokemon creado correctamente",
+        "mensaje": "Pokemon creado ha creado el Pokemon, valgame dios majaris lo tuyo que fuerte ",
         "pokemon": pokemon_dict
     }
 
@@ -64,15 +64,15 @@ def crear(nuevo_pokemon: Pokemon):
         "pokemon": pokemon_dict
     }
 """
-@app.put("/pokemon/{item_id}")
+@app.put("/pokemon/{item_id}") # _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 def actualizar(item_id: int):
     return {"mensaje": f"Se ha actualizado el Pokemon {item_id}"}
 
 
-@app.patch("/pokemon/{item_id}")
+@app.patch("/pokemon/{item_id}") # _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 def actualizar_parte(item_id: int):
     return {"mensaje": f"Se ha actualizado parte del Pokemon {item_id}"}
 
-@app.delete("/pokemon/{item_id}")
+@app.delete("/pokemon/{item_id}") # _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 def eliminar(item_id: int):
     return {"mensaje": f"Se ha eliminado el Pokemon {item_id}"}

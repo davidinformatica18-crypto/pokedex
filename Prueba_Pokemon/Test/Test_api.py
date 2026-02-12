@@ -1,11 +1,15 @@
 from fastapi import FastAPI
 from pathlib import Path
+from pydantic import BaseModel
+from persistencia import cargar_pokemons, guardar_pokemons
 import json
+
 
 app = FastAPI()
 
 
-archivo_json = Path(__file__).parent / "lista_pokemon.json" # Ruta del JSON
+# archivo_json = Path(__file__).parent / "lista_pokemon.json" # Ruta del JSON
+pokemons = cargar_pokemons()
 
 
 with open(archivo_json, "r") as archivo: # Archivo el JSON
@@ -30,11 +34,36 @@ def pokemovimientos():
 
     return movimientos
 
-
 @app.post("/pokemon")
-def crear():
-    return {"mensaje": "Se ha creado el Pokemon"}
+def crear(nuevo_pokemon: Pokemon):
 
+    pokemon_dict = nuevo_pokemon.dict()
+
+    pokemons.append(pokemon_dict)
+
+    guardar_pokemons(pokemons)
+
+    return {
+        "mensaje": "Pokemon creado correctamente",
+        "pokemon": pokemon_dict
+    }
+
+"""
+@app.post("/pokemon")
+def crear(nuevo_pokemon: Pokemon):
+
+    pokemon_dict = nuevo_pokemon.dict()
+
+    pokemon.append(pokemon_dict)
+
+    with open(archivo_json, "w", encoding="utf-8") as archivo:
+        json.dump(pokemon, archivo, indent=4, ensure_ascii=False)
+
+    return {
+        "mensaje": "ha creado el Pokemon, valgame dios majaris lo tuyo que fuerte",
+        "pokemon": pokemon_dict
+    }
+"""
 @app.put("/pokemon/{item_id}")
 def actualizar(item_id: int):
     return {"mensaje": f"Se ha actualizado el Pokemon {item_id}"}

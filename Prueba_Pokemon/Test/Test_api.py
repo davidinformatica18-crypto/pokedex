@@ -2,8 +2,8 @@ from fastapi import FastAPI
 from pathlib import Path
 from pydantic import BaseModel
 from persistencia import cargar_pokemons, guardar_pokemons
+from typing import List
 import json
-
 
 app = FastAPI()
 

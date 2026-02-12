@@ -9,11 +9,28 @@ app = FastAPI()
 
 
 # archivo_json = Path(__file__).parent / "lista_pokemon.json" # Ruta del JSON
+
 pokemons = cargar_pokemons()
 
 
-with open(archivo_json, "r") as archivo: # Archivo el JSON
-    pokemons = json.load(archivo)
+# with open(archivo_json, "r") as archivo: # Archivo el JSON
+#    pokemons = json.load(archivo)
+
+class Movimiento(BaseModel):
+    nombre: str
+    tipo: str
+    poder: int
+
+
+class Pokemon(BaseModel):
+    nombre: str
+    tipo: str
+    vida: int
+    ataque: int
+    defensa: int
+    velocidad: int
+    movimientos: List[Movimiento]
+
 
 @app.get("/pokemon") # Lista de Pokemon _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 def lista_pokemon():
